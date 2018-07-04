@@ -1,0 +1,158 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Curriculo
+  </div>
+  <div class="panel-body">
+    <form [formGroup]="formUser" novalidate>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="nome">Nome</label>
+          <input formControlName="nome" type="text" class="form-control" id="nome" placeholder="Digite o nome">
+        </div>
+        <div *ngIf="formUser.controls['nome'].invalid && (formUser.controls['nome'].dirty || formUser.controls['nome'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="formUser.controls['nome'].errors.required">
+            nome é requerido.
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="nascimento">Data de nascimento</label>
+          <input formControlName="nascimento" type="date" class="form-control" id="nascimento" placeholder="Digite a data de nascimento">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="genero">Genero</label>
+          <select formControlName="genero" class="form-control" id="genero">
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="endereço">Endereço</label>
+          <input formControlName="endereco" type="text" class="form-control" id="endereço" placeholder="Digite o endereço">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="cidade">Cidade</label>
+          <input formControlName="cidade" type="text" class="form-control" id="cidade" placeholder="Digite o cidade">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="estado">Estado</label>
+          <input formControlName="estado" type="text" class="form-control" id="estado" placeholder="Digite o estado">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="email">Email</label>
+          <input formControlName="email" type="email" class="form-control" id="email" placeholder="Digite o email">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="latitude">Latitude</label>
+          <input formControlName="latitude" type="text" class="form-control" id="latitude" placeholder="Digite a latitude">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="longitude">Longitude</label>
+          <input formControlName="longitude" type="text" class="form-control" id="longitude" placeholder="Digite a longitude">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="tags">Tags</label>
+          <textarea formControlName="tags" class="form-control" id="tags" rows="3"></textarea>
+        </div>
+      </div>
+    </form>
+    <div class="form-row">
+      <h3>Formação</h3>
+      <form [formGroup]="formFormacoes" novalidate>
+        <div formArrayName="frmformacoes">
+          <div *ngFor="let itemrow of formFormacoes.controls.frmformacoes.controls; let i=index" [formGroupName]="i">
+            <a class="remover-contato" *ngIf="formFormacoes.controls.frmformacoes.controls.length > 1" (click)="removeFormacao(i)">Remover Formação</a>
+
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="instituicao">Instituição</label>
+                <input formControlName="instituicao" type="text" class="form-control" id="instituicao" placeholder="Digite o nome da instituição">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="curso">Curso</label>
+                <input formControlName="curso" type="text" class="form-control" id="curso" placeholder="Digite o nome do curso">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inicio">Inicio</label>
+                <input formControlName="inicio" type="date" class="form-control" id="inicio" placeholder="Digite a data de inicio">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="termino">Termino</label>
+                <input formControlName="termino" type="date" class="form-control" id="termino" placeholder="Digite a data de termino">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-10">
+          </div>
+          <div class="form-group col-md-2">
+            <button (click)="addFormacao()" class="btn btn-primary">Adicionar formação</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="form-row">
+      <h3>Experiencias profissional</h3>
+      <form [formGroup]="formExperiencias" novalidate>
+        <div formArrayName="experiencias">
+          <div *ngFor="let itemrow of formExperiencias.controls.experiencias.controls; let j=index" [formGroupName]="j">
+            <h4 class="contato">Experiencia</h4>
+            <a class="remover-contato" *ngIf="formExperiencias.controls.experiencias.controls.length > 1" (click)="removeExperiencias(j)">Remover contato</a>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="empresa">Empresa</label>
+                <input formControlName="empresa" type="text" class="form-control" id="empresa" placeholder="Digite o nome da empresa">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="cargo">Cargo</label>
+                <input formControlName="cargo" type="text" class="form-control" id="cargo" placeholder="Digite o cargo">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inicio">Inicio</label>
+                <input formControlName="inicio" type="date" class="form-control" id="inicio" placeholder="Digite a data de inicio">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="saida">Saida</label>
+                <input formControlName="saida" type="date" class="form-control" id="saida" placeholder="Digite a data de saida">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="atividades">Atividades</label>
+                  <textarea formControlName="atividades" class="form-control" id="atividades" rows="2"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-10"></div>
+            <div class="form-group col-md-2">
+              <button (click)="addExperiencia()" class="btn btn-primary">Adicionar experiencia</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="foto">Foto</label>
+        <input type="file" class="form-control-file" id="foto">
+      </div>
+      <div class="form-row col-md-10"></div>
+      <div class="form-group col-md-2">
+        <button (click)="salvar(this)" [disabled]="formUser.pristine || formUser.invalid" class="btn btn-primary">Salvar Curriculo</button>
+      </div>
+    </div>
+  </div>
+</div>

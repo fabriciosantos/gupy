@@ -1,0 +1,104 @@
+<div class="row space-b">
+  <div class="col-md-12 conteudo">
+    <div class="row">
+      <H3>Curriculo</H3>
+      <div class="col-md-6">
+        <div class="input-label">Nome :</div>
+        <div class="label">{{user.nome}}</div>
+      </div>
+      <div class="col-md-6">
+        <div class="input-label">Nascimento : </div>
+        <div class="label">{{user.nascimento}}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="input-label">Genero :</div>
+        <div class="label">{{user.genero}}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-label">Email :</div>
+        <div class="label">{{user.email}}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-label">Telefone :</div>
+        <div class="label">{{user.telefone}}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-label">Endereco :</div>
+        <div class="label">{{user.endereco}}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="input-label">Cidade :</div>
+        <div class="label">{{user.cidade}}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-label">Estado :</div>
+        <div class="label">{{user.estado}}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-label">Latitude :</div>
+        <div class="label">{{user.latitude}}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-label">Longitude :</div>
+        <div class="label">{{user.longitude}}</div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-label">Tags :</div>
+        <div class="label">{{user.tags}}</div>
+      </div>
+    </div>    
+    <hr>
+    <h3>Experiências</h3>
+    <div *ngFor="let itemrow of experiencias; let j=index" [formGroupName]="j">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="input-label">Empresa :</div>
+          <div class="label">{{experiencias.empresa}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="input-label">Carg :</div>
+          <div class="label">{{experiencias.cargo}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="input-label">Inicio :</div>
+          <div class="label">{{experiencias.inicio}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="input-label">Saida :</div>
+          <div class="label">{{experiencias.saida}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="input-label">Qtividades :</div>
+          <div class="label">{{experiencias.atividades}}</div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h3>Formações</h3>
+    <div *ngFor="let itemrow of formacoes; let j=index" [formGroupName]="j">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="input-label">Instituição :</div>
+            <div class="label">{{experiencias.instituicao}}</div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-label">Curso :</div>
+            <div class="label">{{experiencias.curso}}</div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-label">Inicio :</div>
+            <div class="label">{{experiencias.inicio}}</div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-label">Termino :</div>
+            <div class="label">{{experiencias.termino}}</div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
